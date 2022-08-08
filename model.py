@@ -9,4 +9,3 @@ class User:
 
     def validate_password(self, password):
         return self.password == password
-    
