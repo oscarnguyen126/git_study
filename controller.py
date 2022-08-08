@@ -1,10 +1,18 @@
-from msilib.schema import Error
 from util import render_template
 from db import users
+from model import User
 
 
 def list():
     return render_template('./views.html', {users: users})
+
+
+def register(request):
+    username, email, password, password_repeat = request.data
+    if password == password_repeat:
+        User(username, email, password)
+    else:
+        raise Error('passwords are not matched')
 
 
 def login_user(request):
