@@ -1,7 +1,5 @@
-from unicodedata import name
-
-
 class User:
-    def __init__(self, name, email):
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
+        self.password = password

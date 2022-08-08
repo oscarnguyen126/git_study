@@ -8,3 +8,11 @@ def list():
         User(name='ccc', email='ccc@gmail.com')
     ]
     return render_template('./views.html', {users: users})
+
+
+def register(request):
+    username, email, password, password_repeat = request.data
+    if password == password_repeat:
+        User(username, email, password)
+    else:
+        raise Error('passwords are not matched')
